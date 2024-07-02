@@ -1,0 +1,35 @@
+---
+import "@fontsource-variable/inter";
+import "@styles/global.scss";
+import { getImage } from "astro:assets";
+import GlobLoader from "@components/globals/GlobLoader/GlobLoader.astro";
+import BaseHead from "@components/globals/BaseHead.astro";
+import Header from "@components/globals/Header/Header.astro";
+import Footer from "@components/globals/Footer/Footer.astro";
+import Cursor from "@/components/globals/Cursor/Cursor.astro";
+
+const {
+	title,
+	data_page,
+} = Astro.props;
+---
+
+<html lang="en" data-page={data_page ? data_page : ""}>
+	<BaseHead title={title} />
+	<body>
+		<Header />
+		<Cursor />
+		<!-- <GlobLoader/> -->
+		<div class="main on-load">
+			<slot />
+		</div>
+		<Footer/>
+		<script>
+			import main from "@/js/main";
+			setTimeout(() => {
+				document.querySelector(".main").classList.remove("on-load");
+			}, 200);
+			main();
+		</script>
+	</body>
+</html>

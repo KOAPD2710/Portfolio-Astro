@@ -1,0 +1,40 @@
+---
+import HeaderGlobal from "./Header";
+const currYear = new Date().getFullYear();
+
+// const pages = [
+//     {
+//         name: "Kustomers",
+//         type: "dropdown",
+//         sub_menu: [...newList],
+//     },
+//     { name: "Katalog", link: "/katalog", type: "" },
+//     {
+//         name: "Solutions",
+//         type: "dropdown",
+//         sub_menu: [
+//             { name: "Private label", url: "/private-label" },
+//             { name: "Kustom packaging", url: "/kustom-packaging-solutions" },
+//         ],
+//     },
+//     { name: "Fulfillment", link: "/fulfillment", type: "" },
+//     {
+//         name: "Resources",
+//         type: "dropdown",
+//         sub_menu: [
+//             { name: "Insights", url: "/insights" },
+//             { name: "Kase Studies", url: "/kase-studies" },
+//         ],
+//     },
+//     { name: "Know us", link: "/about", type: "" },
+// ];
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<HeaderGlobal
+    currYear={currYear}
+    pathname={pathname}
+    client:load
+>
+</HeaderGlobal>

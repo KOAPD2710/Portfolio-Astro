@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+import GlobalFooter from "./Footer";
+const currYear = new Date().getFullYear();
+
+---
+
+<GlobalFooter
+    currYear={currYear}
+    client:visible={{ rootMargin: "50% 0% 50% 0%" }}
+>
+</GlobalFooter>
